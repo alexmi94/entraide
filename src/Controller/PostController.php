@@ -11,6 +11,8 @@ use App\Form\CommentaireType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Security;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PostController extends AbstractController
 {
@@ -36,7 +38,7 @@ class PostController extends AbstractController
         $post = $this->entityManager->getRepository(Post::class)->find($id);
 
         // Create a new Comment instance
-        $comment = new Comment();
+        $comment = new Commentaire();
         
         // Create the form for adding a comment
         $form = $this->createFormBuilder($comment)
@@ -67,6 +69,7 @@ class PostController extends AbstractController
 
         return $this->render('post/index.html.twig', [
             'form' => $form,
+            'post' => $post
         ]);
     }
 }
