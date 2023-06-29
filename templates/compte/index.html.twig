@@ -5,8 +5,20 @@
 {% block body %}
 <div class="container">
 
-
+<div class="row" style="margin-top:10px">
+    <div class="col-md-12">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary-emphasis">Mes compétences </strong>
+          <h3 class="mb-0"></h3>
+          <div class="mb-1 text-body-secondary">HTML, PHP, JS, SQL</div>
+          <p class="card-text mb-auto"></p>
+        </div>
+      </div>
+    </div>
+</div>
 <div style="margin-top:30px;"></div>
+<h1>Mes posts</h1>
 {% for post in user.getPosts() %}
 
 <div class="row">
