@@ -42,7 +42,7 @@ class PostController extends AbstractController
         
         // Create the form for adding a comment
         $form = $this->createFormBuilder($comment)
-            ->add('Nouveau commentaire ', TextareaType::class)
+            ->add('Commentaire', TextareaType::class)
             ->getForm();
 
         $form->handleRequest($request);
