@@ -40,7 +40,9 @@ class NewPostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $post->setUser($user);
-
+            $currentDate = new \DateTime();
+            $formattedDate = $currentDate->format('Y-m-d');
+            $post->setDate($formattedDate);
 
             $entityManager = $this->managerRegistry->getManager();
             $entityManager->persist($post);
