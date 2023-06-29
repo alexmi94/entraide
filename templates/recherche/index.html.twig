@@ -6,5 +6,14 @@
 
 <div class="example-wrapper">
 
+{{ form_start(form) }}
+{{ form_row(form.titre) }}
+    <div class="row center"> 
+        <button type="submit" class="btn">Recherche</button>
+    </div>
+{{ form_end(form) }}
+
+
+
 </div>
 {% endblock %}

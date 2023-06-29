@@ -13,7 +13,7 @@ class RechercheType extends AbstractType
     {
         $builder
         ->add('titre', TextType::class, [
-            'label' => 'titre',
+            'label' => 'theme',
             'required' => true,
         ]);
         ;

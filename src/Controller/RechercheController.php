@@ -39,7 +39,8 @@ class RechercheController extends AbstractController
         }
 
         return $this->render('recherche/index.html.twig', [
-            'post' => $post,
+            'post' => $Post,
+            'form' => $form
         ]);
     }
 }
