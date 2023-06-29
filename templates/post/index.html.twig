@@ -11,14 +11,48 @@
     <div class="col-md-12">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+          <strong class="d-inline-block mb-2 text-primary-emphasis">Par {{post.user.username}}</strong>
           <h3 class="mb-0">{{post.titre}}</h3>
-          <div class="mb-1 text-body-secondary">{{post.date|date('d-m-Y')}}</div>
+          <div class="mb-1 text-body-secondary">Le {{post.date|date('d-m-Y')}}</div>
           <p class="card-text mb-auto">{{post.description}}</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-            Continue reading
-            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-          </a>
+          
+
+            {{ form_start(form) }}
+            <div class="row d-flex p-2">
+              {{ form_row(form.content) }}
+            <div>
+                <button style="margin-left:10px" class="btn" type="submit">new comment</button>
+            </div>
+            </div>
+            {{ form_end(form) }}
+
+            <div>
+            {% for comment in post.getCommentaires() %}
+
+            <div class="row">
+            <div class="card mb-4">
+            <div class="card-body">
+            <p>{{comment.content}}</p>
+
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="25"
+                  height="25" />
+                <p style="margin-right:10px" class="small mb-0 ms-2">{{comment.getUser().username}}</p>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                <p class="small text-muted mb-0">Date</p>
+                <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
+                <p class="small text-muted mb-0">{{comment.date|date('d-m-Y')}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+               
+            </div>
+
+            {% endfor %}
+            </div>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -27,20 +61,6 @@
     </div>
 </div>
 </div>
-    {{ form_start(form) }}
-            <div>
-            <button type="submit">new comment</button>
-            </div>
-    {{ form_end(form) }}
-
-<div>
-{% for comment in post.getCommentaires() %}
-
-<div class="row">
-  <p>{{comment.content}}</p>
-</div>
-
-{% endfor %}
-</div>
+  
 
 {% endblock %}
