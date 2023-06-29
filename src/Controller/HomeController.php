@@ -26,7 +26,7 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-        $posts = $this->entityManager->getRepository(Post::class)->findAll();
+        $posts = $this->entityManager->getRepository(Post::class)->findBy([], ['id' => 'DESC']);
 
         return $this->render('home/index.html.twig', [
             'posts' => $posts ,
