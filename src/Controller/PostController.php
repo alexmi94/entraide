@@ -52,15 +52,14 @@ class PostController extends AbstractController
             $comment->setPost($post);
             $comment->setUser($user);
             $currentDate = new \DateTime();
-            $formattedDate = $currentDate->format('Y-m-d');
-            $comment->setDate($formattedDate);
+            $comment->setDate($currentDate);
     
             $entityManager = $this->managerRegistry->getManager();
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
 
             // Clear the comment object for a new form
-            $comment = new Comment();
+            $comment = new Commentaire();
             $form = $this->createFormBuilder($comment)
                 ->add('content', TextareaType::class)
                 ->getForm();

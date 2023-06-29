@@ -27,4 +27,20 @@
     </div>
 </div>
 </div>
+    {{ form_start(form) }}
+            <div>
+            <button type="submit">new comment</button>
+            </div>
+    {{ form_end(form) }}
+
+<div>
+{% for comment in post.getCommentaires() %}
+
+<div class="row">
+  <p>{{comment.content}}</p>
+</div>
+
+{% endfor %}
+</div>
+
 {% endblock %}
