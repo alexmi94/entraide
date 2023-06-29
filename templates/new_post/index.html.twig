@@ -7,16 +7,24 @@
 <div class="container">
 
 
-    {{ form_start(form) }}
-            <div>
-            <button type="submit">new post</button>
-            
-            </div>
-    {{ form_end(form) }}
+
+            {{ form_start(form) }}
+
+            <div class="row">
+
+                  {{ form_row(form) }}
+
+         </div>
+
+            {{ form_end(form) }}
+                
+        
+
+
 
 </div>
 
 
 
-</div>
+
 {% endblock %}
