@@ -34,12 +34,12 @@ class RechercheController extends AbstractController
         $Post = [];
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $titre = $form->getData()['titre'];
-            $Post = $this->entityManager->getRepository(Post::class)->findBy(['titre' => $titre]);
+            $theme = $form->getData()['theme'];
+            $Post = $this->entityManager->getRepository(Post::class)->findBy(['theme' => $theme]);
         }
 
         return $this->render('recherche/index.html.twig', [
-            'post' => $Post,
+            'posts' => $Post,
             'form' => $form
         ]);
     }

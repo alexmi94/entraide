@@ -12,7 +12,7 @@ class RechercheType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('titre', TextType::class, [
+        ->add('theme', TextType::class, [
             'label' => 'theme',
             'required' => true,
         ]);
