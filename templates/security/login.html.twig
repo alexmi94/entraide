@@ -3,6 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<div class="container">
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -35,8 +36,13 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="btn btn-lg btn-primary" style="margin-top:10px;" type="submit">
         Sign in
     </button>
+
+
+            <a href="{{ path('app_register')}}">Vous n'avez pas de compte ? | Incription</a>
+
 </form>
+</div>
 {% endblock %}
