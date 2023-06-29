@@ -8,9 +8,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{ path('app_home')}}">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ path('app_recherche')}}">Rechercher</a>
-      </li>
+     
       
       {# <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,6 +20,12 @@
         </div>
       </li> #}
       {% if app.user %}
+       <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_new_post')}}">Nouveau post</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{{ path('app_recherche')}}">Rechercher</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ path('app_compte')}}">Mon Compte</a>
       </li>
